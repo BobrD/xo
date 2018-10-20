@@ -1,0 +1,25 @@
+.hi {
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.wrapper {
+    padding: 20px;
+}
+
+.wrapper0 {
+    background: #0056dd;
+}
+
+.wrapper1 {
+    background: #dd0057;
+}
+
+.wrapper2 {
+    background: #786ddd;
+}
+
+.wrapper3 {
+    background: #84dd5d;
+}
