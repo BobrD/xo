@@ -6,10 +6,29 @@ import {crateDivNode} from "../utils/domUtils";
  * @param {Game} game // todo it's not good way provide data to view, we make this for simplification.
  * @constructor
  */
+
+
 export function GameView(controller, game) {
     this.controller = controller;
     this.game = game;
 }
+
+function drawTable(){
+
+    let table = document.createElement('table');
+    for (let i = 0; i < 3; i++){
+        let tr = document.createElement('tr');
+
+        for (let j = 0; j < 3; j++){
+            let td = document.createElement('td');
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
+
+    return table;
+}
+
 
 GameView.prototype.draw = function () {
     if (document.body.children[0]) {
@@ -26,6 +45,8 @@ GameView.prototype.draw = function () {
                     {class: ['wrapper3', 'wrapper']},
                     crateDivNode({
                         class: 'hi',
+
+
                         onClick: () => {
                             this.controller.onHiClick()
                         }

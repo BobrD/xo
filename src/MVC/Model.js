@@ -1,8 +1,8 @@
 export function Bord() {
 
-    this.size = 10;
+   // this.size = 10;
 
-    this.filledCells = []; // Array of string x/o
+    //this.filledCells = []; // Array of string x/o
 }
 
 
@@ -17,9 +17,9 @@ Bord.prototype.makeStep = function (x, y, stone) {
     // todo
 };
 
-Bord.prototype.getCells = function () {
+/*Bord.prototype.getCells = function () {
     return []; // todo
-};
+};*/
 
 export function Game() {
     this.bord = new Bord();
