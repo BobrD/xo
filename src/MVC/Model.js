@@ -14,7 +14,11 @@ export function Bord() {
  * @return boolean if step is available return true
  */
 Bord.prototype.makeStep = function (x, y, stone) {
-    // todo
+    // todo implements store clicks
+};
+
+Bord.prototype.getStone = function (x, y) {
+    return ''; // o | x | ''
 };
 
 /*Bord.prototype.getCells = function () {
@@ -45,6 +49,9 @@ Game.prototype.currentPlayer = 'x';
 
 Game.prototype.makeStep = function (x, y) {
     this.bord.makeStep(x, y, this.currentPlayer);
+
+    // todo trigger current player
+    // todo check game ended
 };
 
 Game.prototype.pressHi = function () {

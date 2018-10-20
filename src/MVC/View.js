@@ -13,10 +13,13 @@ export function GameView(controller, game) {
     this.game = game;
 }
 
-function drawTable(){
-    return h('table', {}, [0, 1, 2].map(() => {
-        return h('tr', {}, [0, 1, 2].map(() => {
-            return h('td', {})
+function drawTable() {
+    return h('table', {}, [0, 1, 2].map((x) => {
+        return h('tr', {}, [0, 1, 2].map((y) => {
+
+            // todo add eventListener
+            // on click should call GameController::makeStep()
+            return h('td', {}, '0'); // todo get x | o from model
         }))
     }));
 }
