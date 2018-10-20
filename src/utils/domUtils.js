@@ -1,6 +1,6 @@
-export const crateDivNode = (props, child) => {
+export const h = (tagName, props, child) => {
 
-    const node = document.createElement('div');
+    const node = document.createElement(tagName);
 
     if (props.hasOwnProperty('class')) {
         if (typeof props.class === 'string') {
@@ -8,16 +8,18 @@ export const crateDivNode = (props, child) => {
         }
 
         if (Array.isArray(props.class)) {
-            props.class.forEach(className => {
-                node.classList.add(className);
-            });
+            node.classList.add(...props.class);
         }
     }
 
     if (child) {
         if (typeof child === "string") {
             node.innerText = child;
-        } else  {
+        } else if (Array.isArray(child))  {
+            child.forEach(child => {
+                node.appendChild(child);
+            });
+        } else if (child) {
             node.appendChild(child);
         }
     }

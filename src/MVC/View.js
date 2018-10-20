@@ -1,4 +1,4 @@
-import {crateDivNode} from "../utils/domUtils";
+import {h} from "../utils/domUtils";
 
 /**
  *
@@ -14,19 +14,11 @@ export function GameView(controller, game) {
 }
 
 function drawTable(){
-
-    let table = document.createElement('table');
-    for (let i = 0; i < 3; i++){
-        let tr = document.createElement('tr');
-
-        for (let j = 0; j < 3; j++){
-            let td = document.createElement('td');
-            tr.appendChild(td);
-        }
-        table.appendChild(tr);
-    }
-
-    return table;
+    return h('table', {}, [0, 1, 2].map(() => {
+        return h('tr', {}, [0, 1, 2].map(() => {
+            return h('td', {})
+        }))
+    }));
 }
 
 
@@ -35,22 +27,20 @@ GameView.prototype.draw = function () {
         document.body.removeChild(document.body.children[0]); // clear
     }
 
-    const node = crateDivNode(
-        {class: ['wrapper0', 'wrapper']},
-        crateDivNode(
-            {class: ['wrapper1', 'wrapper']},
-            crateDivNode(
-                {class: ['wrapper2', 'wrapper']},
-                crateDivNode(
-                    {class: ['wrapper3', 'wrapper']},
-                    crateDivNode({
-                        class: 'hi',
-
-
-                        onClick: () => {
-                            this.controller.onHiClick()
-                        }
-                    }, this.game.hiText)
+    const node = h( 'div', {class: ['wrapper0', 'wrapper']},
+        h('div', {class: ['wrapper1', 'wrapper']},
+            h('div', {class: ['wrapper2', 'wrapper']},
+                h('div', {class: ['wrapper3', 'wrapper']},
+                    h(
+                        'div',
+                        {
+                            class: 'hi',
+                            onClick: () => {
+                                this.controller.onHiClick()
+                            }
+                        },
+                        drawTable()
+                    )
                 ),
             ),
         ),

@@ -4,7 +4,6 @@ import {GameView} from "./View";
 export function GameController() {
     this.game = new Game();
     this.view = new GameView(this, this.game);
-
 }
 
 GameController.prototype.startGame = function() {
@@ -20,4 +19,3 @@ GameController.prototype.onHiClick = function () {
     this.game.pressHi();
     this.view.draw();
 };
-
